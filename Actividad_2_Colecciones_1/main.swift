@@ -153,29 +153,24 @@ func eje8(){
     
 }
 
-func eje9(){
+func eje9() -> [String: [Int : String]] {
     
-    let futbolTeams : [String : String] = ["RealMadrid" : """
-                                           1-Courtois,
-                                           2-Carvajal,
-                                           3-Militao,
-                                           4-Alaba
-                                           """, "ValenciaFC:" : """
-                                                                                
-                                                                                1-Herrerin
-                                                                                3-Lato
-                                                                                14-Gaya
-                                                                                20-Foulquier
-                                                                                
-                                                                                """]
+    let athleticoM = [13 : "Oblak",
+                      2  : "Gimenez",
+                      3  : "Reguillon",
+                      15 : "Savic",
+                      18 : "Molina"]
     
     
-    for (teamName, players) in futbolTeams{
-        print("\(teamName):")
-        print("\(players)")
-    }
-    print()
+    let teams = ["RealMadrid" : realMadridFC,
+                 "athleticoM" : athleticoM ]
     
+    return teams
+    
+}
+
+func eje10(){
+    print(eje9())
 }
 
 
@@ -204,8 +199,10 @@ var control: Bool = true
                 eje7()
             case 8:
                 eje8()
-            case 9, 10:
+            case 9:
                 eje9()
+            case 10:
+                eje10()
             case 0:
                 print("El Fin de la ejecución")
                 control = false
