@@ -7,6 +7,7 @@
 
 import Foundation
 
+//***** TOOLS ******
 
 var exitDefautl = 0
 var enunciados : String = """
@@ -22,10 +23,16 @@ Seleciona la opción que deseas realizar:
 8 - Convertir los dorsales de la plantilla de futbol anterior a un array
 9 - Queremos crear un diccionario cuyo valor sea el nombre de un equipo de futbol y los valores sean la plantilla de futbol asociada, es decir, tendra todos los jugadores con su dorsal y su nombre.
 10 - Queremos imprimir todas los jugadores y sus dorsales de todos los equipos del ejercicio anterior.
-
+0 - Para salir
 """
 
+var realMadridFC : [Int : String] = [1 : "Courtois",2 : "Carvajal",4 : "Alaba",3 : "Militao",23 : "Mendy",18 : "Tchouameni",8 : "Kross",15 : "Valverde",10 : "Modric",20 : "Vinicius",9 : "Benzema"]
+
+
+//***** CODE ******
+
 func eje1(excludeG : String){
+    
     let videoGame = ["The Witcher 3: Wild Hunt","Grand Theft Auto V", "Legend of Zelda: A link to the Past", "Mario Bro"]
     var newArray : [String] = []
     print("In the list of video games we have: ")
@@ -44,15 +51,19 @@ func eje1(excludeG : String){
         print(i)
     }
     print()
+    
    
     
 }
 
 func eje2(){
-    
+    print("El array inmutable es el siguiente: ")
+    print()
     var vowels : Set<String> = ["a","e","i","o","u"]
     
     vowels.insert("a")
+    
+    //vowels.remove(at: 2) no se puede elimianar el elemento 2 porque en el conjunto no hay posición
     
     print(vowels)
     print()
@@ -62,10 +73,11 @@ func eje3(){
     
     
     var arrayNum = [Int]()
-    var num = 5
+    let num = 5
     
     print("El array es el siguiente: ")
-    for _ in 1...5{
+    print()
+    for _ in 1...1000{
         arrayNum.append(num)
     }
     
@@ -95,6 +107,7 @@ func eje4(){
 }
 
 func eje5(){
+    
     let evenDigits : Set = [20,18,16,14,12,10,8,6,4,2]
     
     print("Conjunto de 10 números: \(evenDigits)")
@@ -109,8 +122,7 @@ func eje5(){
 
 func eje6(){
     
-    let realMadridFC : [Int : String] = [1 : "Courtois",2 : "Carvajal",4 : "Alaba",3 : "Militao",23 : "Mendy",18 : "Tchouameni",8 : "Kross",15 : "Valverde",10 : "Modric",20 : "Vinicius",9 : "Benzema"]
-
+    
     print("Los titulares del partido son: ")
     
     for (num, name) in realMadridFC{
@@ -121,7 +133,6 @@ func eje6(){
 
 func eje7(){
     
-    let realMadridFC : [Int : String] = [1 : "Courtois",2 : "Carvajal",4 : "Alaba",3 : "Militao",23 : "Mendy",18 : "Tchouameni",8 : "Kross",15 : "Valverde",10 : "Modric",20 : "Vinicius",9 : "Benzema"]
     
     let nameHeadLine = [String](realMadridFC.values.sorted())
     print("Los jugadores titulares son: ")
@@ -132,7 +143,6 @@ func eje7(){
 }
 
 func eje8(){
-    let realMadridFC : [Int : String] = [1 : "Courtois",2 : "Carvajal",4 : "Alaba",3 : "Militao",23 : "Mendy",18 : "Tchouameni",8 : "Kross",15 : "Valverde",10 : "Modric",20 : "Vinicius",9 : "Benzema"]
     
     let numberHeadLine = [Int](realMadridFC.keys.sorted())
     
@@ -150,7 +160,14 @@ func eje9(){
                                            2-Carvajal,
                                            3-Militao,
                                            4-Alaba
-                                           """]
+                                           """, "ValenciaFC:" : """
+                                                                                
+                                                                                1-Herrerin
+                                                                                3-Lato
+                                                                                14-Gaya
+                                                                                20-Foulquier
+                                                                                
+                                                                                """]
     
     
     for (teamName, players) in futbolTeams{
@@ -162,14 +179,11 @@ func eje9(){
 }
 
 
-
-
-
-
+//****** LOOP *********
 
     var input : String?
-
-    while true {
+var control: Bool = true
+    while control {
         print(enunciados)
         input = readLine()
         if let option = Int(input ?? ""){
@@ -192,10 +206,15 @@ func eje9(){
                 eje8()
             case 9, 10:
                 eje9()
-            default:
+            case 0:
                 print("El Fin de la ejecución")
+                control = false
+                break
+            default:
+                print("Has introducido un número incorrecto")
+                
             }
-            break
+            
             
         }
         
