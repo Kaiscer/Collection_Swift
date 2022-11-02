@@ -156,15 +156,14 @@ func eje8(){
 func eje9() -> [String: [Int : String]] {
     
     let athleticoM = [13 : "Oblak",
-                      2  : "Gimenez",
-                      3  : "Reguillon",
-                      15 : "Savic",
-                      18 : "Molina"]
-    
-    
-    let teams = ["RealMadrid" : realMadridFC,
-                 "athleticoM" : athleticoM ]
-    
+                          2  : "Gimenez",
+                          3  : "Reguillon",
+                          15 : "Savic",
+                          18 : "Molina"]
+        
+        
+        let teams = ["RealMadrid" : realMadridFC,
+                     "athleticoM" : athleticoM ]
     return teams
     
 }
